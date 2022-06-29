@@ -9,4 +9,4 @@
       az network nic create -g mytestrg --vnet-name testvnet --subnet testsubnet -n testnic
       az network nic ip-config create -g mytestrg -n testipConfig --nic-name testnic --make-primary
       az vm create -n testvm -g mytestrg --image UbuntuLTS --public-ip-address testip --authentication-type password --admin-username demouser --admin-password Ajith@123456789
-     
+
