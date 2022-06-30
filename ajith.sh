@@ -9,3 +9,5 @@
       az network nic create -g $(RG) --vnet-name $(VNET) --subnet $(SUBNET) -n $(NIC)
       az network nic ip-config create -g $(RG) -n testipConfig --nic-name $(NIC) --make-primary
       az vm create -n $(VM) -g $(RG) --image UbuntuLTS --public-ip-address $(IP) --authentication-type password --admin-username $(USER) --admin-password $(PASSWORD)
+      az vm run-command invoke -g $(RG) -n $(VM) --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y application_server"
+      az vm open-port --port 80 --resource-group $(RG) --name $(VM)
